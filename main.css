@@ -1,0 +1,138 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-color: lightblue;
+}
+r{
+    color: red;
+}
+g{
+    color: green;
+}
+b{
+    color: blue;
+}
+.container{
+    width: 100%;
+    background: var(--bg-color);
+    display: grid;
+    grid-template-columns: minmax(10px,1fr) minmax(min-content,1100px) minmax(10px,1fr);
+    grid-template-rows: minmax(100vh,1fr) 50px;
+    font-size: 62.5%;
+    transition: all ease-in-out 300ms;
+}
+.main{
+    grid-area: 1/2;
+    background: white;
+    transition: all ease-in-out 300ms;
+    /* height: auto; */
+}
+.mainHeading{
+    background: var(--bg-color);
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+    padding: 2rem 0;
+    cursor: default;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 300ms;
+}
+.center{
+    background: orange;
+    height: 8vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 2fr 10fr 2fr;
+    border: 2px solid black;
+    border-right: none;
+    border-left: none
+}
+.resetBtn{
+    color: black;
+    font-size: 1rem;
+    border: black solid 2px;
+    /* width: 50px; */
+    text-align: center;    
+    font-weight: bold;
+    padding: 0.5rem 0.7rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+}
+.resetBtn:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.timer{
+    font-size: 2rem;
+    font-family: 'Share Tech Mono', monospace;
+    margin-right: 2rem;
+    cursor: default;
+}
+.winCounter{
+    font-size: 2rem;
+    font-family: 'Share Tech Mono', monospace;
+    margin-left: 2rem;
+}
+.colorBox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    grid-template-rows: repeat(auto-fit,min-content);
+    justify-items: center;
+    align-items: center;
+    transition: all ease-in-out 500ms;
+}
+.circle{
+    height: 200px;
+    width: 200px;
+    background: red;
+    border-radius: 50%;
+    margin: 4rem 1rem;
+    cursor: pointer;
+    transition: all ease-in-out 500ms;
+}
+.circle:hover{
+    border: solid white 2px;
+    box-shadow: black 0px 0px 30px;
+    animation-name: circleMove;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    
+}
+@keyframes circleMove{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(5px);
+    }
+    50%{
+        transform: translateY(5px);
+    }
+    75%{
+        transform: translate3d(5deg);
+    }
+    100%{
+        transform: translateX(0);
+        transform: translate3d(0);
+        transform: translateY(0);
+    }
+}
+.credits{
+    grid-area: 2/2;
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+    font-size: 1rem;
+    /* top: calc(100% - 25px);
+    left: calc(100% - 150px); */
+}
