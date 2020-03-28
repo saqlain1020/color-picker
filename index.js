@@ -30,6 +30,7 @@ function renderCircles(){
     mainHeading.innerHTML = `<r>r</r><g>g</g><b>b</b>(<r>${ans[0]}</r>,<g>${ans[1]}</g>,<b>${ans[2]}</b>)`;
     ans = circle.style.backgroundColor;
     tempColor=1;
+    flag=false;
 }
 var colorBox = document.querySelector(".colorBox");
 var ans;
@@ -37,12 +38,13 @@ var randomCircleNo;
 var tempColor;
 var winCounter=0;
 var winDiv = document.querySelector(".winCounter");
+var flag = false;
 renderCircles();
 //listener
 colorBox.addEventListener("click",function(event){
     let circle = event.target;
     tempColor = circle.style.backgroundColor;
-    if(tempColor===ans){
+    if(tempColor===ans&&flag==false){
         let circle;
         winCounter++;
         winDiv.innerHTML = `Wins:${winCounter}`; 
@@ -52,6 +54,7 @@ colorBox.addEventListener("click",function(event){
         }
         document.querySelector(".container").style.backgroundColor = ans;
         document.querySelector(".mainHeading").style.backgroundColor = ans;
+        flag=true;
     }else if(circle.className!=='colorBox'){
         circle.style.opacity=0;
     }
